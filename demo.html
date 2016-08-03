@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="renderer" content="webkit|ie-stand"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no, email=no"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="browsermode" content="application"/>
+<title>选项卡</title>
+<style>
+h3{margin:0; font-size:14px;font-weight:400;}
+b{font-weight:400;}
+
+.cf:before,.cf:after{display:table;line-height:0;content:' '}
+.cf:after{clear:both}
+.cf{*zoom:1}
+
+.all{}
+.aaa{margin:40px;background-color:#eee;}
+
+
+/**tabmod**/
+.tabmod{}
+.tabmh{border-bottom:1px solid #ccc;}
+.tabtit{float:left;line-height:28px; padding:0 5px; margin:0 5px;
+ background-color:#ccc;}
+.tabtit.now{background-color:#f30;}
+.tabcot{display:none;border:1px solid #ccc; background-color:#fff;}
+.tabcot.curr{display:block;}
+
+
+
+</style>
+</head>
+<body id="tabdev">
+
+
+
+<div class="all jstabarea">
+<div class="aaa">
+
+
+
+
+
+<div class="tabmod jstabmod">
+	<h3 class="tabmh cf">
+		<b class="tabtit jstabtit">选项卡标题</b>
+		<b class="tabtit jstabtit">选项卡标题</b>
+		<b class="tabtit jstabtit">选项卡标题</b>
+	</h3>
+	<div class="tabcot jstabcot">
+	1我们的世界我们的世界我们的世界我们的世
+	界我们的世界我们的世界我们的世界我们的世界
+	</div>
+	<div class="tabcot jstabcot">
+	2我们的世界我们的世界我们的世界我们的世界
+	我们的世界我们的世界我们的世界我们的世界
+	</div>
+	<div class="tabcot jstabcot">
+	3我们的世界我们的世界我们的世界
+	我们的世界我们的世界我们的世界我们的世界我们的世界
+	</div>
+</div>
+
+
+
+
+<div class="tabmod jstabmod2">
+	<h3 class="tabmh cf">
+		<b class="tabtit jstabtit2">选项卡标题</b>
+		<b class="tabtit jstabtit2">选项卡标题</b>
+		<b class="tabtit jstabtit2">选项卡标题</b>
+	</h3>
+	<div class="tabcot jstabcot2">
+	1我们的世界我们的世界我们的世界我们的世
+	界我们的世界我们的世界我们的世界我们的世界
+	</div>
+	<div class="tabcot jstabcot2">
+	2我们的世界我们的世界我们的世界我们的世界
+	我们的世界我们的世界我们的世界我们的世界
+	</div>
+	<div class="tabcot jstabcot2">
+	3我们的世界我们的世界我们的世界
+	我们的世界我们的世界我们的世界我们的世界我们的世界
+	</div>
+</div>
+
+
+
+
+<!-- aaa --></div>
+<!-- all --></div>
+
+
+<script src="js/jq.js"></script>
+<script>
+
+
+
+
+
+/* 纯切换模式 */
+function j0alt(a,as,cl){
+a.addClass(cl);
+as.not(a).removeClass(cl);
+}/*0.5*/
+
+/* 手风琴模式 */
+function j0tog(a,as,cl){
+a.toggleClass(cl);
+as.not(a).removeClass(cl);
+}/*0.5*/
+
+/* 一对一变化*/
+function j0tabs(m,a,b,titnow,tog){
+var mod=$(m);
+var tits=mod.find(a);
+var titidx=tits.index(titnow),
+cots=mod.find(b),cotcurr=cots.eq(titidx);
+if(tog){
+	j0tog(titnow,tits,'now');
+	j0tog(cotcurr,cots,'curr');
+}else{
+	j0alt(titnow,tits,'now');
+	j0alt(cotcurr,cots,'curr');
+}
+}/*0.5*/
+
+
+/* 实例事件模型 */
+$('.jstabarea').on('click','.jstabtit',function(){
+var tabtitnow=$(this);
+j0tabs('.jstabmod','.jstabtit','.jstabcot',tabtitnow,1);
+});
+
+$('.jstabarea').on('mouseenter','.jstabtit2',function(){
+var tabtitnow2=$(this);
+j0tabs('.jstabmod2','.jstabtit2','.jstabcot2',tabtitnow2,0);
+});
+
+
+
+
+</script>
+</body>
+</html>
