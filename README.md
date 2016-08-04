@@ -1,2 +1,2 @@
 # j0tabs
-tabs accordion
+tabs ，little,  alt or tog mode.
